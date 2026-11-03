@@ -7,6 +7,11 @@ on:
       - main
       - master
 
+  pull_request:
+    branches:
+      - main
+      - master
+
   workflow_dispatch:
 
 permissions:
@@ -14,38 +19,57 @@ permissions:
 
 jobs:
   build:
+    name: Build Android APK
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Checkout Repository
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      # 2. Setup Bun
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
 
+      # 3. Setup Java 17
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
 
+      # 4. Setup Android SDK
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
+        with:
+          packages: |
+            platform-tools
+            platforms;android-36
+            build-tools;36.0.0
 
+      # 5. Install Dependencies
       - name: Install Dependencies
         run: bun install --frozen-lockfile
 
+      # 6. Build Web App
       - name: Build Web App
         run: bun run build
 
-      - name: Sync Capacitor
+      # 7. Sync Capacitor
+      - name: Sync Capacitor Android
         run: bunx cap sync android
 
+      # 8. Grant Gradle Permission
+      - name: Grant Gradle Permission
+        run: chmod +x android/gradlew
+
+      # 9. Build Debug APK
       - name: Build Debug APK
         working-directory: android
-        run: ./gradlew assembleDebug
+        run: ./gradlew assembleDebug --stacktrace
 
-      - name: Upload APK
+      # 10. Upload APK
+      - name: Upload Debug APK
         uses: actions/upload-artifact@v4
         with:
           name: NOVA-AI-debug-APK
