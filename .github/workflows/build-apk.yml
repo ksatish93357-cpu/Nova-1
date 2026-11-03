@@ -42,10 +42,7 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
         with:
-          packages: |
-            platform-tools
-            platforms;android-36
-            build-tools;36.0.0
+          packages: 'platform-tools platforms;android-36 build-tools;36.0.0'
 
       # 5. Install Dependencies
       - name: Install Dependencies
@@ -55,7 +52,7 @@ jobs:
       - name: Build Web App
         run: bun run build
 
-      # 7. Sync Capacitor
+      # 7. Sync Capacitor Android
       - name: Sync Capacitor Android
         run: bunx cap sync android
 
@@ -68,7 +65,7 @@ jobs:
         working-directory: android
         run: ./gradlew assembleDebug --stacktrace
 
-      # 10. Upload APK
+      # 10. Upload Debug APK
       - name: Upload Debug APK
         uses: actions/upload-artifact@v4
         with:
