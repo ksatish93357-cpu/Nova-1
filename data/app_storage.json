@@ -1,0 +1,15 @@
+{
+  "sessions": [],
+  "memories": [],
+  "projects": [],
+  "bookmarks": [
+    "build-neural-network",
+    "build-llm-gpt"
+  ],
+  "settings": {
+    "languageMode": "auto",
+    "selectedModel": "gemini-3.8-flash",
+    "memoryEnabled": true
+  },
+  "updatedAt": 1793709836156
+}

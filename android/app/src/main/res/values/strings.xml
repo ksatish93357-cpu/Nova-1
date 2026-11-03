@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">NOVA AI</string>
+    <string name="title_activity_main">NOVA AI</string>
+    <string name="package_name">com.nova.ai.assistant</string>
+    <string name="custom_url_scheme">com.nova.ai.assistant</string>
+</resources>

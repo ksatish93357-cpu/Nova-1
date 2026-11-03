@@ -1,0 +1,20 @@
+{
+	"appId": "com.nova.ai.assistant",
+	"appName": "NOVA AI",
+	"webDir": "dist",
+	"bundledWebRuntime": false,
+	"server": {
+		"androidScheme": "https",
+		"cleartext": true
+	},
+	"plugins": {
+		"Camera": {
+			"presentationStyle": "fullscreen"
+		},
+		"LocalNotifications": {
+			"smallIcon": "ic_stat_icon_config_sample",
+			"iconColor": "#06b6d4",
+			"sound": "beep.wav"
+		}
+	}
+}

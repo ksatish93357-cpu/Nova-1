@@ -1,0 +1,6 @@
+{
+  "name": "NOVA AI",
+  "description": "Personal AI Assistant & Self-Learning AI Platform with conversational intelligence, interactive neural net and mini LLM lab, code playground, and knowledge explorer.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
